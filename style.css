@@ -1,0 +1,322 @@
+*
+{
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   
+}
+.container{
+    margin: 20px auto;
+    width: 100%;
+}
+.row{
+    display: flex;
+}
+hr{
+    border: 2px solid rgb(236, 226, 226);
+}
+.gam-info{
+    display: flex;
+}
+.gam-info .gam-name{
+    flex: 1;
+}
+.gam-info .catgory{
+    flex: 1;
+    text-align: right;
+
+}
+.gam-info .catgory span{
+ text-transform: capitalize;
+ color: rgba(246, 143, 102, 0.854);
+ font-weight: bold;
+    
+}
+.hangman-draw{
+    flex: 1;
+    background-color: rgb(148, 182, 212);
+    padding: 20px;
+    height: 324px;
+}
+.hangman-draw .the-draw{
+    width: 60px;
+    height: 280px;
+    border-bottom: 4px solid #222;
+    position: relative;
+    margin: auto;
+    display: none;
+}
+.hangman-draw .the-stand{
+    display: none;
+}
+.hangman-draw .the-stand::before{
+    content:'';
+    position: absolute;
+    width: 4px;
+   background-color: #222;
+    height: 100%;
+    left: 50%;
+    margin-left: -2px;
+ 
+}
+.hangman-draw .the-hang{
+    display: none;
+}
+
+.hangman-draw .the-hang::before{
+    content:'';
+    position: absolute;
+   background-color: #222;
+    height: 4px;
+    width: 100px;
+    left: 30px;
+    top: 30px;
+ 
+}
+.hangman-draw .the-hang::after{
+    content:'';
+    position: absolute;
+   background-color: #222;
+   width: 4px;
+    height: 30px;
+    left: 130px;
+    top: 30px;
+ 
+}
+.hangman-draw .the-rope{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    position: absolute;
+    left: 100px;
+    top: 58px;
+    border: 4px dashed #222;
+    display: none;
+}
+.hangman-draw .the-man .head{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    position: absolute;
+    left: 111px;
+    top: 66px;
+    border: 4px solid #222;
+    display: none;
+}
+.hangman-draw .the-man .body{
+    width: 4px;
+    height: 110px;
+    position: absolute;
+    left: 134px;
+    top: 116px;
+    background-color: #222;
+    display: none;
+}
+.hangman-draw .the-man .hands{
+    display: none;
+
+}
+.hangman-draw .the-man .hands::before,
+.hangman-draw .the-man .hands::after{
+    content: '';
+width: 50px;
+position: absolute;
+height: 4px;
+background-color: #222;
+top: 150px;
+
+
+}
+.hangman-draw .the-man .hands::before{
+
+left: 88px;
+
+transform: rotate(30deg);
+}
+.hangman-draw .the-man .hands::after{
+    left: 134px;
+    
+   transform: rotate(-30deg);
+}
+.hangman-draw .the-man .legs{
+    display: none;
+}
+.hangman-draw .the-man .legs::before,
+.hangman-draw .the-man .legs::after{
+    content: '';
+width: 50px;
+position: absolute;
+height: 4px;
+background-color: #222;
+top: 235px;
+
+
+}
+.hangman-draw .the-man .legs::before{
+
+left: 88px;
+
+transform: rotate(-30deg);
+}
+.hangman-draw .the-man .legs::after{
+    left: 134px;
+   transform: rotate(30deg);
+}
+.hangman-draw.wrong-1 .the-draw{
+    display: block;
+}
+.hangman-draw.wrong-2 .the-stand{
+    display: block;
+}
+.hangman-draw.wrong-3 .the-hang{
+    display: block;
+}
+.hangman-draw.wrong-4 .the-rope{
+    display: block;
+}
+
+.hangman-draw.wrong-5 .head{
+    display: block;
+}
+.hangman-draw.wrong-6 .body{
+    display: block;
+}
+.hangman-draw.wrong-7 .hands{
+    display: block;
+}
+.hangman-draw.wrong-8 .legs{
+    display: block;
+}
+.letters{
+    flex:1;
+    padding: 15px;
+    text-align: center;
+}
+.letters.finished{
+    pointer-events: none;
+}
+.letters .letter-box{
+    width: 37px;
+    height: 27px;
+    display: inline-block;
+    background-color: rosybrown;
+    color: black;
+    font-size: 24px;
+    margin: 10px;
+    line-height: 25px;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+    margin-bottom: -3px;
+}
+.letters .letter-box.clicked{
+    background-color: #222;
+    opacity: 0.2;
+    margin-bottom: 10px;
+    pointer-events: none;
+}
+.letters-gusse{
+   margin: 10px auto;
+   background-color: aliceblue;
+   padding: 20px;
+   display: flex;
+   justify-content: center;
+   min-height: 104px; 
+}
+.letters-gusse span{
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
+    margin: 10px;
+    text-align: center;
+    line-height: 60px;
+    text-transform: uppercase;
+    font-weight: bold;
+    background-color: #fdfdfd;
+    border-bottom: 3px solid #222;
+    transition: .3s;
+}
+.letters-gusse span.with-space{
+    background: none;
+    border-bottom: none;
+    position: relative;
+
+}
+.letters-gusse span.with-space::before{
+    content: '';
+    width: 20px;
+    height: 4px;
+    background-color: #009688;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+/* .popup{
+    position: fixed;
+    background-color: brown;
+    padding: 100px 20px;
+    width: 80%;
+    top: 10%;
+    left: 10%;
+    text-align: center;
+    border: 1px solid #ccc;
+    color: #FFF;
+    font-size: 60px;
+} */
+/* Style de la popup avec animation */
+
+/* Définition de l'animation fadeInZoom */
+/* @keyframes fadeInZoom {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+} */
+
+/* Style de la popup */
+.popup {
+    position: fixed;
+    background-color: brown;
+    padding: 40px 20px;
+    width: 60%;
+    top: 20%;
+    left: 20%;
+    text-align: center;
+    border: 1px solid #ccc;
+    color: #FFF;
+    font-size: 24px;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transform: scale(0.8);
+}
+
+/* Conteneur des messages */
+.message-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.2em;
+}
+
+/* Style pour les messages */
+.message-container span {
+    flex: 1;
+    text-align: center;
+}
+
+/* Style pour le séparateur "!" */
+.separator {
+    font-weight: bold;
+    font-size: 1.5em;
+    margin: 0 10px;
+    color: #FFD700; /* Jaune doré pour un effet visuel */
+}
+
+
